@@ -1,0 +1,112 @@
+[gd_scene load_steps=15 format=3 uid="uid://b4ace703ucvcr"]
+
+[ext_resource type="Texture2D" uid="uid://dxlhjku1qmrc2" path="res://assets/ground_shaker_asset/Red/Bodies/body_tracks.png" id="1_cqr3p"]
+[ext_resource type="Script" path="res://scripts/enemy_tank.gd" id="1_oas2k"]
+[ext_resource type="Texture2D" uid="uid://bodnftjatb110" path="res://assets/ground_shaker_asset/Red/Weapons/turret_01_mk2.png" id="2_eeghl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uts7g"]
+atlas = ExtResource("2_eeghl")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6soau"]
+atlas = ExtResource("2_eeghl")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r7tvr"]
+atlas = ExtResource("2_eeghl")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qvrle"]
+atlas = ExtResource("2_eeghl")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_df68t"]
+atlas = ExtResource("2_eeghl")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tvipo"]
+atlas = ExtResource("2_eeghl")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lqgh3"]
+atlas = ExtResource("2_eeghl")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_in2ca"]
+atlas = ExtResource("2_eeghl")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a8hat"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uts7g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uts7g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6soau")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r7tvr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qvrle")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_df68t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tvipo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lqgh3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_in2ca")
+}],
+"loop": true,
+"name": &"shooting",
+"speed": 10.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xqxfo"]
+bg_color = Color(0.665982, 0.194152, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lc510"]
+size = Vector2(69, 76)
+
+[node name="enemy_tank" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_oas2k")
+
+[node name="BodyTracks" type="Sprite2D" parent="."]
+position = Vector2(-1, -1)
+texture = ExtResource("1_cqr3p")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -1)
+sprite_frames = SubResource("SpriteFrames_a8hat")
+
+[node name="Healthbar" type="ProgressBar" parent="."]
+offset_left = -59.0
+offset_top = 46.0
+offset_right = 56.0
+offset_bottom = 73.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_xqxfo")
+step = 1.0
+value = 100.0
+rounded = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_lc510")

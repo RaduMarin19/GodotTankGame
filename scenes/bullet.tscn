@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c6pgt"]
 size = Vector2(2, 4)
 
-[node name="bullet" type="StaticBody2D"]
+[node name="bullet" type="Area2D"]
 script = ExtResource("1_ctsv2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -16,3 +16,5 @@ shape = SubResource("RectangleShape2D_c6pgt")
 texture = ExtResource("2_13nk1")
 region_enabled = true
 region_rect = Rect2(446, 9, 4, 3)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
