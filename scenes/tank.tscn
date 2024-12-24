@@ -87,6 +87,8 @@ animations = [{
 radius = 3.0
 
 [node name="tank" type="CharacterBody2D"]
+z_index = -1
+y_sort_enabled = true
 script = ExtResource("1_g1l8s")
 
 [node name="Body" type="CollisionShape2D" parent="."]
@@ -97,6 +99,7 @@ shape = SubResource("RectangleShape2D_5gh8u")
 texture = ExtResource("1_isfm0")
 
 [node name="Turret" type="Area2D" parent="."]
+y_sort_enabled = true
 
 [node name="TurretSprite" type="AnimatedSprite2D" parent="Turret"]
 sprite_frames = SubResource("SpriteFrames_1ogd3")
