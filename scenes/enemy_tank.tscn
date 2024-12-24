@@ -82,7 +82,7 @@ bg_color = Color(0.665982, 0.194152, 0, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lc510"]
 size = Vector2(69, 76)
 
-[node name="enemy_tank" type="CharacterBody2D"]
+[node name="enemy_tank" type="CharacterBody2D" groups=["enemies"]]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_oas2k")

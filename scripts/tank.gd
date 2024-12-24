@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-const SPEED = 120.0
-const TURRET_SPEED=60.0
+const SPEED = 300.0
+const TURRET_SPEED=100.0
 var player_state
 var can_shoot=true
 
