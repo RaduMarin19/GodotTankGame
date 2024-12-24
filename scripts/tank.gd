@@ -48,3 +48,12 @@ func shoot():
 func _on_timer_timeout() -> void:
 	can_shoot=true
 	$Turret/TurretSprite.play("idle")
+
+func take_damage(damage):
+	$HealthBar.value-=damage
+	if $HealthBar.value<=0:
+		$remove.start(1)
+		$Turret/TurretSprite.play("exploding")
+
+func _on_remove_timeout() -> void:
+	queue_free()

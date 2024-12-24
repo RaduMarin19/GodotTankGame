@@ -13,4 +13,10 @@ func _process(delta: float) -> void:
 func take_damage(damage):
 	HealthBar.value-=damage
 	if HealthBar.value<=0:
-		queue_free()
+		$remove.start(1)
+		$BodyTracks.queue_free()
+		$AnimatedSprite2D.play("exploding")
+
+
+func _on_remove_timeout() -> void:
+	queue_free()

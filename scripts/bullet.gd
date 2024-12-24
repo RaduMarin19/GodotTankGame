@@ -17,4 +17,4 @@ func _on_VisibilityNotifier2D_screen_exited():
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemies"):
 		body.take_damage(10);
-		queue_free()
+	queue_free()
