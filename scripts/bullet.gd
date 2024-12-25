@@ -13,8 +13,5 @@ func _process(delta: float) -> void:
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
 
-
-func _on_body_entered(body: Node2D) -> void:
-	if body.is_in_group("enemies"):
-		body.take_damage(10);
+func _on_body_entered(body) -> void:
 	queue_free()

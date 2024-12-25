@@ -1,10 +1,8 @@
-[gd_scene load_steps=38 format=3 uid="uid://celsiq37lsy4d"]
+[gd_scene load_steps=18 format=3 uid="uid://celsiq37lsy4d"]
 
 [ext_resource type="Script" path="res://scripts/tank.gd" id="1_g1l8s"]
 [ext_resource type="Texture2D" uid="uid://djcmeymmvfj8n" path="res://assets/ground_shaker_asset/Purple/Bodies/body_tracks.png" id="1_isfm0"]
 [ext_resource type="Texture2D" uid="uid://bbgkstq8yq0ef" path="res://assets/ground_shaker_asset/Purple/Weapons/turret_01_mk1.png" id="3_p0f1i"]
-[ext_resource type="Texture2D" uid="uid://bodnftjatb110" path="res://assets/ground_shaker_asset/Red/Weapons/turret_01_mk2.png" id="4_by55a"]
-[ext_resource type="Texture2D" uid="uid://dbxnn00a4s802" path="res://assets/explosion/spritesheet.png" id="5_3oned"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5gh8u"]
 size = Vector2(66, 75)
@@ -90,158 +88,22 @@ animations = [{
 "speed": 8.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_uts7g"]
-atlas = ExtResource("4_by55a")
-region = Rect2(0, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pi32w"]
-atlas = ExtResource("5_3oned")
-region = Rect2(0, 0, 128, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0wdod"]
-atlas = ExtResource("5_3oned")
-region = Rect2(128, 0, 128, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_005x0"]
-atlas = ExtResource("5_3oned")
-region = Rect2(256, 0, 128, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lsoto"]
-atlas = ExtResource("5_3oned")
-region = Rect2(384, 0, 128, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7ywxg"]
-atlas = ExtResource("5_3oned")
-region = Rect2(512, 0, 128, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ovr5n"]
-atlas = ExtResource("5_3oned")
-region = Rect2(640, 0, 128, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ft3y5"]
-atlas = ExtResource("5_3oned")
-region = Rect2(768, 0, 128, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_c0w0h"]
-atlas = ExtResource("5_3oned")
-region = Rect2(896, 0, 128, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3hp65"]
-atlas = ExtResource("5_3oned")
-region = Rect2(1024, 0, 128, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gfele"]
-atlas = ExtResource("5_3oned")
-region = Rect2(1152, 0, 128, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6soau"]
-atlas = ExtResource("4_by55a")
-region = Rect2(128, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_r7tvr"]
-atlas = ExtResource("4_by55a")
-region = Rect2(256, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qvrle"]
-atlas = ExtResource("4_by55a")
-region = Rect2(384, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_df68t"]
-atlas = ExtResource("4_by55a")
-region = Rect2(512, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tvipo"]
-atlas = ExtResource("4_by55a")
-region = Rect2(640, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lqgh3"]
-atlas = ExtResource("4_by55a")
-region = Rect2(768, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_in2ca"]
-atlas = ExtResource("4_by55a")
-region = Rect2(896, 0, 128, 128)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_gsdoo"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_uts7g")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pi32w")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0wdod")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_005x0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lsoto")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7ywxg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ovr5n")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ft3y5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_c0w0h")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3hp65")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gfele")
-}],
-"loop": true,
-"name": &"exploding",
-"speed": 9.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_uts7g")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6soau")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_r7tvr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qvrle")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_df68t")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tvipo")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lqgh3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_in2ca")
-}],
-"loop": true,
-"name": &"shooting",
-"speed": 7.0
-}]
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_7blhu"]
 radius = 3.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_at03i"]
 bg_color = Color(0.665982, 0.194152, 0, 1)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_btkq0"]
+properties/0/path = NodePath("Turret:rotation")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:position")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath("Healthbar:value")
+properties/2/spawn = true
+properties/2/replication_mode = 1
 
 [node name="tank" type="CharacterBody2D"]
 z_index = -1
@@ -249,34 +111,41 @@ y_sort_enabled = true
 script = ExtResource("1_g1l8s")
 
 [node name="Body" type="CollisionShape2D" parent="."]
+z_index = -1
+y_sort_enabled = true
 position = Vector2(-1, 1.5)
 shape = SubResource("RectangleShape2D_5gh8u")
 
 [node name="BodySprite" type="Sprite2D" parent="."]
+z_index = -1
+y_sort_enabled = true
 texture = ExtResource("1_isfm0")
 
 [node name="Turret" type="Area2D" parent="."]
 y_sort_enabled = true
 
 [node name="TurretSprite" type="AnimatedSprite2D" parent="Turret"]
+z_index = -1
+y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_1ogd3")
-animation = &"new_animation"
+animation = &"idle"
 autoplay = "idle"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Turret/TurretSprite"]
-position = Vector2(-1, -1)
-scale = Vector2(1, 1.13461)
-sprite_frames = SubResource("SpriteFrames_gsdoo")
-autoplay = "default"
-
 [node name="BarrelTip" type="CollisionShape2D" parent="Turret"]
+z_index = -1
+y_sort_enabled = true
 position = Vector2(0, -45)
 rotation = -1.52981
 shape = SubResource("CircleShape2D_7blhu")
 
+[node name="RayCast2D" type="RayCast2D" parent="Turret"]
+target_position = Vector2(1, -50)
+
 [node name="Timer" type="Timer" parent="."]
 
 [node name="Healthbar" type="ProgressBar" parent="."]
+z_index = -1
+y_sort_enabled = true
 offset_left = -59.0
 offset_top = 46.0
 offset_right = 56.0
@@ -287,6 +156,11 @@ value = 100.0
 rounded = true
 
 [node name="remove" type="Timer" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_btkq0")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="remove" to="." method="_on_remove_timeout"]
