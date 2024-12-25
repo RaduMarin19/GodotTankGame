@@ -1,11 +1,52 @@
-[gd_scene load_steps=18 format=3 uid="uid://celsiq37lsy4d"]
+[gd_scene load_steps=29 format=3 uid="uid://celsiq37lsy4d"]
 
 [ext_resource type="Script" path="res://scripts/tank.gd" id="1_g1l8s"]
 [ext_resource type="Texture2D" uid="uid://djcmeymmvfj8n" path="res://assets/ground_shaker_asset/Purple/Bodies/body_tracks.png" id="1_isfm0"]
+[ext_resource type="Texture2D" uid="uid://dbxnn00a4s802" path="res://assets/explosion/spritesheet.png" id="3_hj603"]
 [ext_resource type="Texture2D" uid="uid://bbgkstq8yq0ef" path="res://assets/ground_shaker_asset/Purple/Weapons/turret_01_mk1.png" id="3_p0f1i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5gh8u"]
 size = Vector2(66, 75)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fwgpa"]
+atlas = ExtResource("3_hj603")
+region = Rect2(0, 0, 128, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_him7r"]
+atlas = ExtResource("3_hj603")
+region = Rect2(128, 0, 128, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1bvin"]
+atlas = ExtResource("3_hj603")
+region = Rect2(256, 0, 128, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ab5oq"]
+atlas = ExtResource("3_hj603")
+region = Rect2(384, 0, 128, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gmor8"]
+atlas = ExtResource("3_hj603")
+region = Rect2(512, 0, 128, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_efwlp"]
+atlas = ExtResource("3_hj603")
+region = Rect2(640, 0, 128, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4y6jt"]
+atlas = ExtResource("3_hj603")
+region = Rect2(768, 0, 128, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vmrdh"]
+atlas = ExtResource("3_hj603")
+region = Rect2(896, 0, 128, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ust50"]
+atlas = ExtResource("3_hj603")
+region = Rect2(1024, 0, 128, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_umc8g"]
+atlas = ExtResource("3_hj603")
+region = Rect2(1152, 0, 128, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_thrjc"]
 atlas = ExtResource("3_p0f1i")
@@ -47,15 +88,45 @@ region = Rect2(896, 0, 128, 128)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_fwgpa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_him7r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1bvin")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ab5oq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gmor8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_efwlp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4y6jt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vmrdh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ust50")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_umc8g")
+}],
+"loop": true,
+"name": &"exploding",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_thrjc")
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
-}, {
-"frames": [],
-"loop": true,
-"name": &"new_animation",
 "speed": 5.0
 }, {
 "frames": [{
@@ -104,6 +175,15 @@ properties/1/replication_mode = 1
 properties/2/path = NodePath("Healthbar:value")
 properties/2/spawn = true
 properties/2/replication_mode = 1
+properties/3/path = NodePath("Turret/TurretSprite:animation")
+properties/3/spawn = true
+properties/3/replication_mode = 1
+properties/4/path = NodePath("Turret/BarrelTip:rotation")
+properties/4/spawn = true
+properties/4/replication_mode = 1
+properties/5/path = NodePath("BodySprite:visible")
+properties/5/spawn = true
+properties/5/replication_mode = 1
 
 [node name="tank" type="CharacterBody2D"]
 z_index = -1
@@ -130,16 +210,17 @@ y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_1ogd3")
 animation = &"idle"
 autoplay = "idle"
+frame_progress = 0.190513
 
 [node name="BarrelTip" type="CollisionShape2D" parent="Turret"]
 z_index = -1
 y_sort_enabled = true
-position = Vector2(0, -45)
+position = Vector2(0, -53)
 rotation = -1.52981
 shape = SubResource("CircleShape2D_7blhu")
 
 [node name="RayCast2D" type="RayCast2D" parent="Turret"]
-target_position = Vector2(1, -50)
+target_position = Vector2(4, -287)
 
 [node name="Timer" type="Timer" parent="."]
 

@@ -40,30 +40,39 @@ func turret_movement(delta):
 func shoot():
 	if not is_multiplayer_authority(): return
 	if can_shoot:
-		var bullet = BULLET.instantiate()
 		$Turret/TurretSprite.play("shooting")
 		
-		bullet.global_position=$Turret/BarrelTip.global_position
+		create_bullet.rpc()
 		
-		var angle =$Turret/BarrelTip.rotation
-		bullet.direction=Vector2(cos(angle),sin(angle)).normalized()
-		get_tree().get_root().add_child(bullet) 
 		can_shoot=false
 		$Timer.start(0.7)
 		if ray_cast.is_colliding():
 			var hit_player = ray_cast.get_collider()
-			hit_player.take_damage.rpc_id(hit_player.get_multiplayer_authority())
+			if hit_player.has_method("take_damage"):
+				hit_player.take_damage.rpc_id(hit_player.get_multiplayer_authority())
+
+@rpc("call_local")
+func create_bullet():
+	var bullet = BULLET.instantiate()
+	
+	bullet.global_position = $Turret/BarrelTip.global_position
+	
+	var angle = $Turret/BarrelTip.rotation
+	bullet.direction = Vector2(cos(angle),sin(angle)).normalized()
+	
+	get_tree().get_root().add_child(bullet)
 
 func _on_timer_timeout() -> void:
 	can_shoot=true
 	$Turret/TurretSprite.play("idle")
 
-
 @rpc("any_peer")
 func take_damage(damage=10):
 	$Healthbar.value-=damage
 	if $Healthbar.value<=0:
+		can_shoot=false
 		$remove.start(1)
+		$BodySprite.hide()
 		$Turret/TurretSprite.play("exploding")
 
 func _on_remove_timeout() -> void:
