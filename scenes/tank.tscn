@@ -210,7 +210,7 @@ y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_1ogd3")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.190513
+frame_progress = 0.358432
 
 [node name="BarrelTip" type="CollisionShape2D" parent="Turret"]
 z_index = -1

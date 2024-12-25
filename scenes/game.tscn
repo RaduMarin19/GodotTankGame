@@ -2019,7 +2019,7 @@ texture = ExtResource("3_b7i1o")
 42:2/0 = 0
 43:5/size_in_atlas = Vector2i(2, 2)
 43:5/0 = 0
-43:5/0/y_sort_origin = 10
+43:5/0/y_sort_origin = 15
 43:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_vjq5l"]
@@ -2031,6 +2031,7 @@ size = Vector2(85, 83)
 
 [node name="Game" type="Node2D"]
 z_index = -1
+y_sort_enabled = true
 position = Vector2(25, 741)
 script = ExtResource("1_jb5rk")
 
