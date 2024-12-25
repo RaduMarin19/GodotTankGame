@@ -9,7 +9,7 @@ var can_shoot=true
 @onready var BULLET = preload("res://scenes/bullet.tscn")
 var spawn_positions = [
 	Vector2(-300, 800), 
-	Vector2(0, 300), 
+	Vector2(0, 300),
 	Vector2(300, 1200), 
 	Vector2(600, 543)
 ]
