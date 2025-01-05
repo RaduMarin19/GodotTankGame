@@ -7,14 +7,6 @@ var can_shoot=true
 
 @onready var ray_cast = $Turret/RayCast2D
 @onready var BULLET = preload("res://scenes/bullet.tscn")
-var spawn_positions = [
-	Vector2(-300, 800), 
-	Vector2(0, 300),
-	Vector2(300, 1200), 
-	Vector2(600, 543)
-]
-
-var current_spawn_index = 0
 
 func _enter_tree():
 	set_multiplayer_authority(str(name).to_int())
@@ -27,11 +19,14 @@ func _ready() ->void:
 	global_position = spawn_point
 
 func get_next_spawn_point():
-	current_spawn_index = str(name).to_int() % spawn_positions.size()
-	print(current_spawn_index)
-	var spawn_point = spawn_positions[current_spawn_index]
+	var x = randf_range(-300,1400)
+	var y= randf_range(-250,900)
+	var spawn_point = Vector2(x,y)
+	
 	return spawn_point
 
+
+@rpc("call_local")
 func _process(delta):
 	if not is_multiplayer_authority() : return
 	var direction =Input.get_vector("left","right","up","down")
