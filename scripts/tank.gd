@@ -19,9 +19,11 @@ var current_spawn_index = 0
 func _enter_tree():
 	set_multiplayer_authority(str(name).to_int())
 
+@rpc("call_local")
 func _ready() ->void:
 	if not is_multiplayer_authority(): return
 	var spawn_point = get_next_spawn_point()
+	$Camera2D.make_current()
 	global_position = spawn_point
 
 func get_next_spawn_point():

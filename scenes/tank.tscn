@@ -239,6 +239,10 @@ rounded = true
 [node name="remove" type="Timer" parent="."]
 
 [node name="Camera2D" type="Camera2D" parent="."]
+limit_left = -475
+limit_top = -391
+limit_right = 1562
+limit_bottom = 1071
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_btkq0")
