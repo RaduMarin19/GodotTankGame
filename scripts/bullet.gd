@@ -14,4 +14,6 @@ func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
 
 func _on_body_entered(body) -> void:
+	if body.has_method("take_damage"):
+		body.take_damage.rpc_id(body.get_multiplayer_authority())
 	queue_free()

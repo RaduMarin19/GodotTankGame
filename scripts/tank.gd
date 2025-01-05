@@ -14,8 +14,8 @@ func _enter_tree():
 @rpc("call_local")
 func _ready() ->void:
 	if not is_multiplayer_authority(): return
-	var spawn_point = get_next_spawn_point()
 	$Camera2D.make_current()
+	var spawn_point = get_next_spawn_point()
 	global_position = spawn_point
 
 func get_next_spawn_point():
@@ -58,10 +58,6 @@ func shoot():
 		
 		can_shoot=false
 		$Timer.start(0.7)
-		if ray_cast.is_colliding():
-			var hit_player = ray_cast.get_collider()
-			if hit_player.has_method("take_damage"):
-				hit_player.take_damage.rpc_id(hit_player.get_multiplayer_authority())
 
 @rpc("call_local")
 func create_bullet():
@@ -88,4 +84,10 @@ func take_damage(damage=10):
 		$Turret/TurretSprite.play("exploding")
 
 func _on_remove_timeout() -> void:
-	queue_free()
+	var spawn_point = get_next_spawn_point()
+	global_position = spawn_point
+	$Healthbar.value=100
+	$remove.stop()
+	$Turret/TurretSprite.play("idle")
+	can_shoot=true
+	$BodySprite.show()
