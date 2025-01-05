@@ -5,7 +5,6 @@ extends Node2D
 
 const Player = preload("res://scenes/tank.tscn")
 const SERVER_PORT = 8080
-const SERVER_IP= "ec2-51-20-72-101.eu-north-1.compute.amazonaws.com"
 var enet_peer =ENetMultiplayerPeer.new()
 
 # Called when the node enters the scene tree for the first time.
@@ -30,7 +29,7 @@ func _on_host_button_pressed() -> void:
 
 func _on_join_button_pressed() -> void:
 	main_menu.hide()
-	
+	var SERVER_IP = address_entry.text
 	enet_peer.create_client(SERVER_IP,SERVER_PORT)
 	multiplayer.multiplayer_peer=enet_peer
 
