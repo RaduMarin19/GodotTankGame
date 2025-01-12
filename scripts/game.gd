@@ -14,9 +14,6 @@ func _ready() -> void:
 		multiplayer.peer_connected.connect(add_player)
 		multiplayer.peer_disconnected.connect(remove_player)
 
-func _process(delta: float) -> void:
-	pass
-
 func _on_host_button_pressed() -> void:
 	main_menu.hide()
 	

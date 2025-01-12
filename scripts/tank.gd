@@ -5,7 +5,6 @@ const TURRET_SPEED=100.0
 var player_state
 var can_shoot=true
 
-@onready var ray_cast = $Turret/RayCast2D
 @onready var BULLET = preload("res://scenes/bullet.tscn")
 
 func _enter_tree():
