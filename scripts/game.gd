@@ -14,14 +14,6 @@ func _ready() -> void:
 		multiplayer.peer_connected.connect(add_player)
 		multiplayer.peer_disconnected.connect(remove_player)
 
-func _on_host_button_pressed() -> void:
-	main_menu.hide()
-	
-	enet_peer.create_server(SERVER_PORT)
-	multiplayer.multiplayer_peer=enet_peer
-	multiplayer.peer_connected.connect(add_player)
-	multiplayer.peer_disconnected.connect(remove_player)
-
 func _on_join_button_pressed() -> void:
 	main_menu.hide()
 	var SERVER_IP = address_entry.text
