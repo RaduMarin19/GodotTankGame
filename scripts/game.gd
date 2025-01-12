@@ -7,7 +7,6 @@ const Player = preload("res://scenes/tank.tscn")
 const SERVER_PORT = 8080
 var enet_peer =ENetMultiplayerPeer.new()
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if OS.has_feature("dedicated_server"):
 		enet_peer.create_server(SERVER_PORT)
@@ -15,7 +14,6 @@ func _ready() -> void:
 		multiplayer.peer_connected.connect(add_player)
 		multiplayer.peer_disconnected.connect(remove_player)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 

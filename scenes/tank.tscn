@@ -219,9 +219,6 @@ position = Vector2(0, -53)
 rotation = -1.52981
 shape = SubResource("CircleShape2D_7blhu")
 
-[node name="RayCast2D" type="RayCast2D" parent="Turret"]
-target_position = Vector2(4, -287)
-
 [node name="Timer" type="Timer" parent="."]
 
 [node name="Healthbar" type="ProgressBar" parent="."]
